@@ -19,23 +19,22 @@ char *my_strdup(const char *s)
 int main(int argc, char const *argv[])
 {
 
-	// char *s = strdup("hello world");
-	char *s = ft_strdup("hello world");
 
-	/*
-** 	int ft_strcmp(const char *s1, const char *s2);
-*/
+	// char *s = strdup(STR);
+	char *s = ft_strdup(STR);
 
+	int fd = open("file_test", O_CREAT | O_WRONLY | O_RDONLY, 0666);
 	printf("strcmp =\t%d\n", strcmp(STR2));
 	printf("ft_strcmp =\t%d\n", ft_strcmp(STR2));
 
 	printf("strlen =\t%lu\n", strlen(STR));
 	printf("ft_strlen =\t%lu\n", ft_strlen(STR));
 
-	// printf("strlcpy =\t%s\n", s);
 	printf("strcpy =\t%s\n", strcpy(s, "hello friend"));
 	printf("strcpy =\t%s\n", ft_strcpy(s, "hello friend"));
 
-	// ft_write(0, STR, 13);
+	ft_write(fd, STR, 13);
+	// write(0, STR, 13);
+	close(fd);
 	return 0;
 }

@@ -1,10 +1,8 @@
 			section	.text
-			global	ft_strdup
 			extern	malloc
 			extern	ft_strlen
 			extern	ft_strcpy
-
-; delete RDX, RCX, RAX and everything that malloc destroy
+			global	ft_strdup
 
 ; char *ft_strdup(const char *s)
 ft_strdup:						; rax ft_strfup(rdi)
