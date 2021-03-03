@@ -2,8 +2,9 @@
 			global	ft_strcmp
 ft_strcmp:
 	mov rdx , 0 ; i = 0
-compare : 
-	cmp BYTE[rdi + rdx], BYTE[rsi + rdx] ; s1[i] - s2[i]
+compare :
+	mov dl , BYTE[rsi + rdx]
+	cmp dl, BYTE[rdi + rdx] ; s1[i] - s2[i]
 jg greater
 jl lesser
 cmp BYTE[rdi + rdx], 0

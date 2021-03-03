@@ -1,4 +1,4 @@
-SRCS		=	ft_strlen.s ft_strcmp.s
+SRCS		=	ft_strlen.s ft_strcmp.s ft_read.s ft_write.s
 OBJS		=	$(SRCS:.s=.o)
 # BONUS_SRCS	=	ft_atoi_base_bonus.s ft_list_size_bonus.s ft_list_push_front_bonus.s \
 # 				ft_list_remove_if_bonus.s ft_list_sort_bonus.s
@@ -20,10 +20,10 @@ $(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
 
 clean:
-				rm -rf $(OBJS) $(BONUS_OBJS)
+				rm -rf *.o
 
 fclean:			clean
-				rm -rf $(NAME) $(BONUS) $(TEST) $(TEST_BONUS)
+				rm -rf $(NAME)  $(TEST)
 
 re:				fclean $(NAME)
 
