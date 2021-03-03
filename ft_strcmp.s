@@ -1,0 +1,21 @@
+			section	.text
+			global	ft_strcmp
+ft_strcmp:
+	mov rdx , 0 ; i = 0
+compare : 
+	cmp BYTE[rdi + rdx], BYTE[rsi + rdx] ; s1[i] - s2[i]
+jg greater
+jl lesser
+cmp BYTE[rdi + rdx], 0
+jz equal
+inc rdx
+jmp compare
+greater:
+	mov rax, 1
+ret
+lesser:
+	mov rax, -1
+ret
+equal:
+	mov rax, 0
+ret
