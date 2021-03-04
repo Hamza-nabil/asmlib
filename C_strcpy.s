@@ -6,12 +6,12 @@
 
 C_strcpy: ; rax ft_strcpy(rdi, rsi);
 
-		xor 	rax, rax
+		xor	rax, rax
 compare :
-		cmp		BYTE [rsi + rax] , 0
-		je return
-		mov	r9b ,BYTE [rsi + rax]
-		mov BYTE [rdi + rax] , r9b
+		cmp	BYTE [rsi + rax] , 0
+		je	return
+		mov	dl ,BYTE [rsi + rax]
+		mov BYTE [rdi + rax] , dl
 		inc rax
 		jmp compare
 return :

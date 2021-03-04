@@ -6,7 +6,7 @@
 /*   By: isel-jao  <isel-jao@student.42.f>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 21:55:05 by isel-jao          #+#    #+#             */
-/*   Updated: 2021/03/04 22:47:21 by isel-jao         ###   ########.fr       */
+/*   Updated: 2021/03/04 23:09:07 by isel-jao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ void list_remove_if(t_list **head, void *data, int (*cmp)())
 		free(tmp->data);
 		free(tmp);
 	}
+	if (!(*head))
+		return;
 	t_list *tmp2 = *head;
-	while (*head && (*head)->next)
+	while ((*head)->next)
 	{
 		if (!cmp((*head)->next->data, data))
 		{
@@ -83,16 +85,21 @@ int main(int argc, char const *argv[])
 	head = NULL;
 	// printf("strcmp \t\t%d\n", strcmp(STR2));
 	// printf("ft_strcmp \t%d\n", ft_strcmp(STR2));
-
-	ft_list_push_front(&head, (void *)ft_strdup(";|"));
-	ft_list_push_front(&head, (void *)ft_strdup(":("));
-	ft_list_push_front(&head, (void *)ft_strdup(":)"));
-	ft_list_push_front(&head, (void *)ft_strdup("world"));
-	ft_list_push_front(&head, (void *)ft_strdup("hello"));
+	ft_list_push_front(&head, (void *)ft_strdup("008"));
+	ft_list_push_front(&head, (void *)ft_strdup("008"));
+	ft_list_push_front(&head, (void *)ft_strdup("007"));
+	ft_list_push_front(&head, (void *)ft_strdup("006"));
+	ft_list_push_front(&head, (void *)ft_strdup("005"));
+	ft_list_push_front(&head, (void *)ft_strdup("005"));
+	ft_list_push_front(&head, (void *)ft_strdup("004"));
+	ft_list_push_front(&head, (void *)ft_strdup("003"));
+	ft_list_push_front(&head, (void *)ft_strdup("002"));
+	ft_list_push_front(&head, (void *)ft_strdup("001"));
+	ft_list_push_front(&head, (void *)ft_strdup("000"));
+	ft_list_push_front(&head, (void *)ft_strdup("000"));
 	printf("list size %d\n", ft_list_size(head));
 	print_list(head);
-	// list_remove_if(&head, (void *)("hello"));
-	list_remove_if(&head, (void *)(";|"), &strcmp);
+	list_remove_if(&head, (void *)("005"), &strcmp);
 	printf("list size %d\n", ft_list_size(head));
 	print_list(head);
 
